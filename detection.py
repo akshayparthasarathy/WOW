@@ -13,8 +13,8 @@ labels = labels['OBJECT (2017 REL.)']
 
 location = {}
 
-width = 512
-height = 512
+width = 640
+height = 480
 
 dist = 0.48
 """
@@ -98,7 +98,7 @@ for score, (ymin,xmin,ymax,xmax), label in zip(pred_scores, pred_boxes, pred_lab
     cv2.putText(img_boxes,label,(xmin, ymax-10), font, 0.5, (255,0,0), 1, cv2.LINE_AA)
     cv2.putText(img_boxes,score_txt,(xmax, ymax-10), font, 0.5, (255,0,0), 1, cv2.LINE_AA)
     if label == "carrot" or label == "bottle" or label == "apple":
-        location[label] = [((xmin/width)*dist, (ymax/height)*dist),((xmax/width)*dist, (ymin/height)*dist)]
+        location[label] = [(xmin/width+xmax/width)/2, (ymin/height+ymax/height)/2]
 print(location)
 cv2.imshow("Detections", img_boxes)
 cv2.waitKey(0)
@@ -108,30 +108,3 @@ cv2.destroyAllWindows()
 import json
 with open("location.json", "w") as outfile:
     json.dump(location, outfile)
-"""
-for i in range(0, len(location)):
-    if location["bottle"] != None:
-        loc = location["bottle"]
-        xmax = loc[1][0]
-        xmin = loc[0][0]
-        ymax = loc[0][1]
-        ymin = loc[1][1]
-        rob.bottle([(xmax+xmin)/2, (ymin+ymax)/2, 0])
-        location["bottle"] = None
-    if location["carrot"] != None:
-        loc = location["carrot"]
-        xmax = loc[1][0]
-        xmin = loc[0][0]
-        ymax = loc[0][1]
-        ymin = loc[1][1]
-        rob.vegetable([(xmax+xmin)/2, (ymin+ymax)/2, 0])
-        location["carrot"] = None
-    if location["apple"] != None:
-        loc = location["apple"]
-        xmax = loc[1][0]
-        xmin = loc[0][0]
-        ymax = loc[0][1]
-        ymin = loc[1][1]
-        rob.fruit([(xmax+xmin)/2, (ymin+ymax)/2, 0])
-        location["apple"] = None
-"""
