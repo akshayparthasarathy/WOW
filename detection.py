@@ -1,3 +1,4 @@
+from distutils.file_util import write_file
 import tensorflow_hub as hub
 import cv2
 import numpy
@@ -9,12 +10,13 @@ detector = hub.load("https://tfhub.dev/tensorflow/efficientdet/lite2/detection/1
 labels = pd.read_csv('labels.csv',sep=';',index_col='ID')
 labels = labels['OBJECT (2017 REL.)']
 
+
 location = {}
 
 width = 512
 height = 512
 
-dist = 1
+dist = 0.48
 """
 # while(True):
 #     #Capture frame-by-frame
@@ -96,14 +98,17 @@ for score, (ymin,xmin,ymax,xmax), label in zip(pred_scores, pred_boxes, pred_lab
     cv2.putText(img_boxes,label,(xmin, ymax-10), font, 0.5, (255,0,0), 1, cv2.LINE_AA)
     cv2.putText(img_boxes,score_txt,(xmax, ymax-10), font, 0.5, (255,0,0), 1, cv2.LINE_AA)
     if label == "carrot" or label == "bottle" or label == "apple":
-        location[label] = [((xmin/width)*1, (ymax/height)*1),((xmax/width)*1, (ymin/height)*1)]
+        location[label] = [((xmin/width)*dist, (ymax/height)*dist),((xmax/width)*dist, (ymin/height)*dist)]
 print(location)
 cv2.imshow("Detections", img_boxes)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-"""
-import rob
 
+
+import json
+with open("location.json", "w") as outfile:
+    json.dump(location, outfile)
+"""
 for i in range(0, len(location)):
     if location["bottle"] != None:
         loc = location["bottle"]
