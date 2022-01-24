@@ -1,4 +1,3 @@
-from distutils.file_util import write_file
 import tensorflow_hub as hub
 import cv2
 import numpy
@@ -24,13 +23,10 @@ dist = 0.48
     
 #     #Resize to respect the input_shape
 #     inp = cv2.resize(frame, (width , height))
-
 #     #Convert img to RGB
 #     rgb = cv2.cvtColor(inp, cv2.COLOR_BGR2RGB)
-
 #     #Is optional but i recommend (float convertion and convert img to tensor image)
 #     rgb_tensor = tf.convert_to_tensor(rgb, dtype=tf.uint8)
-
 #     #Add dims to rgb_tensor
 #     rgb_tensor = tf.expand_dims(rgb_tensor , 0)
     
@@ -54,12 +50,10 @@ dist = 0.48
 #         cv2.putText(img_boxes,score_txt,(xmax, ymax-10), font, 0.5, (255,0,0), 1, cv2.LINE_AA)
 #         if label == "carrot" or label == "bottle" or label == "apple":
 #             location[label] = [(xmin, ymax),(xmax, ymin)]
-
 #     #Display the resulting frame
 #     cv2.imshow('Recognition',img_boxes)
 #     if cv2.waitKey(1) & 0xFF == ord('q'):
 #         break
-
 # print(location)
 # # When everything done, release the capture
 # cap.release()

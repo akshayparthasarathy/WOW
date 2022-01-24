@@ -94,34 +94,5 @@ for i in range(0, len(location)):
         print([-x, -y])
         fruit([-x, -y])
         location.pop("apple")
-# bottle(test)
-
-# vegetable(test)
-
-# fruit(test)
-
-# for i in range(0, n):
-#     input(0, n)
 
 rob.close()
-
-# try using force stop sensor
-"""
-if "bottle" in location:
-loc = location["bottle"]
-xmax = -loc[1][0]
-xmin = -loc[0][0]
-ymax = 0.5 * 0.5 - loc[0][1]
-ymin = 0.5 * 0.5 - loc[1][1]
-bottle([(xmax+xmin)/2, (ymin+ymax)/2, 0])
-location.pop("bottle")
-
-if "carrot" in location:
-loc = location["carrot"]
-xmax = -loc[1][0]
-xmin = -loc[0][0]
-ymax = 0.5 * 0.5 - loc[0][1]
-ymin = 0.5 * 0.5 - loc[1][1]
-vegetable([(xmax+xmin)/2, (ymin+ymax)/2, 0])
-location.pop("carrot")
-"""
