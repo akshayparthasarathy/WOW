@@ -1,0 +1,56 @@
+Begin
+    Input home, vegetableBin, fruitBin, bottleBin
+    Input numberOfVegetables, numberOfBottles, numberOfFruits
+    N = 0
+    While numberOfVegetables > 0 and N < 3:
+        Capture Image
+        location = DetectVegetable(Image)
+        current = GetLocation(Robot)
+        MoveRobot: current -> location
+        if N == 2:
+            While Force(sensors) < 10N:
+                MoveRobot: current -> location
+                MoveRobot: Downwards 
+            CloseRobotGripper
+            MoveRobot: current -> bottleBin
+            OpenRobotGripper
+            break while loop
+        MoveRobot: 0.1m downwards
+        N = N + 1
+    N1 = 0
+    While numberOfFruits > 0:
+        Capture Image
+        destination = DetectFruit(Image)
+        current = GetLocation(Robot)
+        MoveRobot: current -> destination
+        if N1 == 2:
+            While Force(sensors) < 10N:
+                MoveRobot: current -> location
+                MoveRobot: Downwards 
+            CloseRobotGripper
+            MoveRobot: current -> bottleBin
+            OpenRobotGripper
+            break while loop
+        MoveRobot: 0.1m downwards
+        N1 = N1 + 1
+    N2 = 0
+    While numberOfBottles > 0:
+        Capture Image
+        destination = DetectBottle(Image)
+        current = GetLocation(Robot)
+        MoveRobot: current -> destination
+        if N2 == 2:
+            While Force(sensors) < 10N:
+                MoveRobot: current -> location
+                MoveRobot: Downwards 
+            CloseRobotGripper
+            MoveRobot: current -> bottleBin
+            OpenRobotGripper
+            break while loop
+        MoveRobot: 0.1m downwards
+        N2 = N2 + 1
+End
+
+
+        
+
