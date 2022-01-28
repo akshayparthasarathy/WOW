@@ -1,5 +1,5 @@
 # WOW
-This GitHub repo contains the programs and other required files that I have used to complete my WOW project. This markdown file will provide a brief description of the code files.
+This GitHub repo contains the programs and other required files that I have used to complete my WOW project. This markdown file will provide a brief description of the code files. I used Python 3.9.7 and Visual Studio Code.
 
 ## Old (Folder)
 Contains the code for the original robot motion algorithm that used a single shot to detect and move to objects. No longer in use. It has to be run in the following order:
