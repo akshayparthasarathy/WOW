@@ -16,3 +16,5 @@ The file requires the following libraries:
 `tensorflow >= 2.2, tensorflow-gpu >= 2.2 (match version with tensorflow), tensorflow_hub (latest), opencv-python (latest), numpy (latest), pandas (latest), urx (latest), time (latest)`
 ## test.py
 Moves the robot to the home position (can be modified)
+## pseudocode (file)
+Contains the algorithm pseudocode.
