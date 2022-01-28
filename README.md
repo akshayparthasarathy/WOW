@@ -2,7 +2,7 @@
 This GitHub repo contains the programs and other required files that I have used to complete my WOW project. This markdown file will provide a brief description of the code files.
 
 ## Old (Folder)
-Contains the code for the original robot motion algorithm that used a single shot to detect and move to objects. No longer in use. It has to be run in the following order:\
+Contains the code for the original robot motion algorithm that used a single shot to detect and move to objects. No longer in use. It has to be run in the following order:
 1. img.py
 2. detection.py
 3. rob.py
