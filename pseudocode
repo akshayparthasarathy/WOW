@@ -50,7 +50,3 @@ Begin
         MoveRobot: 0.1m downwards
         N2 = N2 + 1
 End
-
-
-        
-
